@@ -1,0 +1,5 @@
+<div class="container section-prop">
+  <div *ngIf="message$">
+    {{ message$ | async | json }}
+  </div>
+</div>
