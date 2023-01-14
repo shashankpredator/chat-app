@@ -1,14 +1,17 @@
-<nav class="navbar navbar-default" >
-    <div class="container" style="background-color: lightgrey;">
-      <div class="navbar-header">
-        <a class="navbar-brand">
-            <strong>Chat-App</strong>
-        </a>
-      </div>
-      <p class="navbar-text navbar-right">
-        <button class="mt-3 btn btn-primary" type="button">
-          Messages <span class="badge"></span>
-        </button>
-      </p>
+<nav class="navbar navbar-default">
+  <div class="container" style="background-color: lightgrey">
+    <div class="navbar-header">
+      <a class="navbar-brand">
+        <strong>Chat-App</strong>
+      </a>
     </div>
-  </nav>
+    <p class="navbar-text navbar-right">
+      <button class="mt-3 btn btn-primary" type="button">
+        Message Count<span class="badge">{{ numberOfMessage }}</span>
+      </button>
+      <button class="mt-3 ms-2 btn btn-secondary" (click)="clear()" type="button">
+        Clear Chat<span class="badge" ></span>
+      </button>
+    </p>
+  </div>
+</nav>

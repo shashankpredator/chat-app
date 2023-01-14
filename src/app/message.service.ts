@@ -9,11 +9,18 @@ export class MessageService {
 
   constructor() { }
 
-   message = new BehaviorSubject<Message>(null);
+   messages : Array<Message> = [];
+   message = new Subject<Message[]>();
 
-   onEmit(author:string,message:string )
+   onEmit(author:string,text:string )
    {
-    let messageObj = new Message({author,message})
-    this.message.next(messageObj)
+    let messageObj = new Message({author,text})
+    this.messages.push(messageObj)
+    this.message.next(this.messages)
+   }
+
+   clearAll() {
+    this.messages.splice(0,this.messages.length);
+    this.message.next(this.messages)
    }
 }

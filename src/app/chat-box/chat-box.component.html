@@ -1,5 +1,18 @@
-<div>
-    Author: <input type="text" [formControl]="author">
-    Message: <input type="text" [formControl]="message">
-    <button type="submit" (click)="onSubmit()">Submit</button>
-</div> 
+<div class="container h-100" style="display: flex">
+  <div class="me-3">
+    User Name :<select class="p-1" [formControl]="author">
+      <option *ngFor="let user of usersName">
+        {{ user }}
+      </option>
+    </select>
+  </div>
+  <div>
+    <input
+      type="text"
+      class="me-1"
+      placeholder="Type Your Message Here"
+      [formControl]="text"
+    />
+    <button type="submit" (click)="onSubmit()"> Submit</button>
+  </div>
+</div>

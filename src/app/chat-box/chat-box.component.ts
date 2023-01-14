@@ -8,6 +8,8 @@ import { MessageService } from '../message.service';
 })
 export class ChatBoxComponent implements OnInit {
 
+
+  usersName =['Alex','Donald','Messi','Ronaldo']
   constructor(
     private msgSvc : MessageService
   ) { }
@@ -16,9 +18,9 @@ export class ChatBoxComponent implements OnInit {
   }
 
   author = new FormControl('');
-  message = new FormControl('');
+  text = new FormControl('');
   
   onSubmit() {
-    this.msgSvc.onEmit(this.author.value,this.message.value)
+    this.msgSvc.onEmit(this.author.value,this.text.value)
   }
 }

@@ -10,7 +10,7 @@ export class CommonServiceService {
 }
 
 export interface Async<T> {
-  isLoading : boolean,
+  state : boolean,
   data ?: T,
   error ?: any
 }
@@ -18,8 +18,8 @@ export interface Async<T> {
 export function state<T>(data: Observable<any>) : Observable<Async<T>>
   {
     return data.pipe(map(data => 
-      ({isLoading: false, data})),
-      catchError(error => of({isLoading: false, error})),
-      startWith({isLoading: true}),
+      ({state: false, data})),
+      catchError(error => of({state: false, error})),
+      startWith({state: true}),
     )
   }

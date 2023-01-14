@@ -1,13 +1,4 @@
 import { v4 as uuid } from 'uuid';
-
-
-
-export interface HttpRequestState<T> {
-  isLoading: boolean;
-  value?: T;
-  error?: Error;
-}
-
 export class User {
     id: string;
     constructor(public name: string,) {

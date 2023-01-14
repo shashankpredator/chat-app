@@ -1,5 +1,20 @@
-<div class="container section-prop">
-  <div *ngIf="message$">
-    {{ message$ | async | json }}
+<div class="container section-prop overflow-auto mb-3 p-2">
+  <div *ngIf="message$ | async as message">
+    <div [ngSwitch]="message.state">
+      <div *ngSwitchCase="true">Loading Or Waiting for First Message</div>
+      <div *ngSwitchCase="false">
+        <div *ngIf="message.data !== null && message.data !== undefined">
+          <div *ngIf="message.data.length == 0">
+              No Message to show
+          </div>
+          <div *ngFor="let item of message.data | keyvalue">
+            <p>
+              <strong>{{ item.value.author }} Message</strong> ->
+              {{ item.value.text }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
